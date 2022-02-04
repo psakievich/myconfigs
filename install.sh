@@ -21,8 +21,4 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-if [ "$machine" == "Mac" ];
-    echo 'export source ${HOME}/.my_bash >> ${HOME}/.bash_profile'
-else
-    echo 'export source ${HOME}/.my_bash >> ${HOME}/.bashrc'
-fi
+echo 'export source ${HOME}/.my_bash >> ${HOME}/.bash_profile'
