@@ -1,7 +1,7 @@
 from spack.package import *
-from VimPackage import VimPackage
+from spack.pkg.psakievich.vimpackage import Vimpackage
 
-class NvimPlenary(VimPackage):
+class NvimPlenary(Vimpackage):
     """Collection of functions used for many neovim plugins"""
 
     url      = 'https://github.com/nvim-lua/plenary.nvim'
@@ -9,3 +9,4 @@ class NvimPlenary(VimPackage):
     git = url
 
     version('master', branch='master')
+    depends_on('neovim')

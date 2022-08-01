@@ -1,8 +1,7 @@
 from spack.package import *
-from VimPackage import VimPackage
+from spack.pkg.psakievich.vimpackage import Vimpackage
 
-
-class NvimTelescope(VimPackage):
+class NvimTelescope(Vimpackage):
     """Neovim plugin telescope"""
 
     homepage = "https://github.com/nvim-telescope/telescope.nvim"
