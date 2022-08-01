@@ -7,7 +7,7 @@ ln -s ${HOME}/.my_bash my_bash
 # install vim stuff
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
-cp my_configs.vim ~/.vim_runtime/my_configs.vim
+ln -s ${PWD}/my_configs.vim ${HOME}/.vim_runtime/my_configs.vim
 
 # append files
 
