@@ -1,9 +1,10 @@
 from spack.package import *
 import spack.util.executable
+from spack.pkg.psakievich.vimpackage import config_link, neovim
 import os
 
 
-class Pjstack(BundlePackage):
+class Psakievich(BundlePackage):
     """Maseter package to install all my configurations"""
 
     homepage = "https://psakievich.github.io"
@@ -22,11 +23,15 @@ class Pjstack(BundlePackage):
         mkdirp(os.path.expanduser('~/.vim'))
 
         # link init and vimrc
-        os.symlink(os.path.expanduser('~/soft/myconfigs/init.vim'),
+        config_link(os.path.expanduser('~/soft/myconfigs/init.vim'),
                    os.path.expanduser('~/.config/nvim/init.vim'))
-        os.symlink(os.path.expanduser('~/soft/myconfigs/vimrc.vim'),
+        config_link(os.path.expanduser('~/soft/myconfigs/vimrc.vim'),
                    os.path.expanduser( '~/.vimrc'))
 
-        # build help tags
-        nvim = spack.util.executable.which('nvim')
-
+        # install tree-sitter languages I want
+        languages = ['cpp', 'python', 'lua', 'markdown', 'yaml']
+        install_string = 'TSInstall {lan}'
+        provider = neovim()
+        for l in languages:
+            provider([install_string.format(lan=l)])
+            

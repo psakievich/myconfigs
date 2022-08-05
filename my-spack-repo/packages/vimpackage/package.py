@@ -2,6 +2,35 @@ from spack.package import *
 import spack.util.executable
 import os
 
+def config_link(src, dest):
+    if os.path.islink(dest):
+        os.unlink(dest)
+    os.symlink(src, dest)
+
+
+class neovim:
+    def __init__(self):
+        self.nvim = spack.util.executable.which('nvim')
+
+    def __call__(self, args):
+        exe_args = ['--headless']
+        exe_args.extend([v for x in list(args) for v in ['-c', x]])
+        exe_args.extend(['-c', 'q'])
+        self.nvim(*exe_args)
+
+
+class vim:
+    def __init(self):
+        self.vim = spack.util.executable.which('vim')
+
+    def __call__(self, args):
+        
+        exe_args = [v for x in list(args) for v in ['-c', x]]
+        exe_args.extend(['-c', 'q'])
+        self.vim(*exe_args)
+
+
+
 class Vimpackage(Package):
     """Meta class for vim packages"""
 
@@ -21,23 +50,16 @@ class Vimpackage(Package):
         else:
             return os.path.join(self.spec.prefix,
                                 'share', 'vim', self.name)
-    @staticmethod
-    def link(src, dest):
-        if os.path.islink(dest):
-            os.unlink(dest)
-        os.symlink(src, dest)
-
 
     def install(self, spec, prefix):
 
         mkdirp(self.plugin_location)
         install_tree(self.stage.source_path, self.install_path)
-        Vimpackage.link(self.install_path, os.path.join(self.plugin_location, self.name))
+        config_link(self.install_path, os.path.join(self.plugin_location, self.name))
         if self.is_neovim:
-            vim = spack.util.executable.which('nvim')
-            vim('--headless', '+:helptags {pdir}'.format(pdir = self.install_path), '+q')
+            vim = neovim()
         else:
-            vim = spack.util.executable.which('vim')
-            vim('-c', ':helptags {pdir}'.format(pdir = self.install_path), '-c', 'q')
+            vim = vim()
+        vim([':helptags ALL'])
 
 
