@@ -5,6 +5,10 @@ import os
 def config_link(src, dest):
     if os.path.islink(dest):
         os.unlink(dest)
+    elif os.path.isdir(dest):
+        os.rmdir(dest)
+    elif os.path.isfile(dest):
+        os.remove(dest)
     os.symlink(src, dest)
 
 

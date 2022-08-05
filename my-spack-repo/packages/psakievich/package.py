@@ -15,11 +15,14 @@ class Psakievich(BundlePackage):
 
     depends_on('nvim-telescope')
     depends_on('neovim')
+    depends_on('nvim-lspconfig')
+
     phases = ['install']
 
     def install(self, spec, prefix):
 
         mkdirp(os.path.expanduser('~/.config/nvim'))
+        mkdirp(os.path.expanduser('~/.config/nvim/lua'))
         mkdirp(os.path.expanduser('~/.vim'))
 
         # link init and vimrc
@@ -27,9 +30,12 @@ class Psakievich(BundlePackage):
                    os.path.expanduser('~/.config/nvim/init.vim'))
         config_link(os.path.expanduser('~/soft/myconfigs/vimrc.vim'),
                    os.path.expanduser( '~/.vimrc'))
+        config_link(os.path.expanduser('~/soft/myconfigs/lua'),
+                   os.path.expanduser( '~/.config/nvim/lua'))
 
         # install tree-sitter languages I want
-        languages = ['cpp', 'python', 'lua', 'markdown', 'yaml']
+        languages = ['cpp', 'python', 'lua', 'markdown', 'yaml', 'cmake',
+                'latex', 'bibtex', 'make', 'bash']
         install_string = 'TSInstall {lan}'
         provider = neovim()
         for l in languages:
