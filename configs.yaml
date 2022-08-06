@@ -1,0 +1,4 @@
+spack:
+  specs: [psakievich]
+  view:
+    root: ${HOME}/myconfig_bin

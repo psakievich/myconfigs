@@ -8,6 +8,7 @@ shopt -u progcomp
 umask u=rwx,go=rx
 
 export SOFT_DIR=${HOME}/soft
+export PATH=${HOME}/myconfig_bin/:${PATH}
 
 function cdh(){
   cd ${HOME}

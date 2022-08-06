@@ -33,6 +33,11 @@ class Psakievich(BundlePackage):
         mkdirp(os.path.expanduser('~/.config/nvim/lua'))
         mkdirp(os.path.expanduser('~/.vim'))
 
+        config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf',
+                    os.path.expanduser('~/.tmux.conf'))
+        config_link(os.path.expanduser('~/soft/myconfigs/my_bash',
+                    os.path.expanduser('~/.my_bash'))
+
         # link init and vimrc
         config_link(os.path.expanduser('~/soft/myconfigs/init.vim'),
                    os.path.expanduser('~/.config/nvim/init.vim'))
