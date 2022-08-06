@@ -16,6 +16,8 @@ class Psakievich(BundlePackage):
     depends_on('nvim-telescope')
     depends_on('neovim')
     depends_on('nvim-lspconfig')
+    depends_on('nvim-dracula')
+    depends_on('nvim-gruvbox')
 
     phases = ['install']
 
