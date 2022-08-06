@@ -30,6 +30,8 @@ class my_vim:
     def __call__(self, args):
         exe_args = [v for x in list(args) for v in ['-c', x]]
         exe_args.extend(['-c', 'q'])
+        print(*exe_args)
+        return
         self.executor(*exe_args)
 
 

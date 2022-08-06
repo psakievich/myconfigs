@@ -18,6 +18,12 @@ class Psakievich(BundlePackage):
     depends_on('nvim-lspconfig')
     depends_on('nvim-dracula')
     depends_on('nvim-gruvbox')
+    depends_on('nvim-colors-solarized')
+    depends_on('nvim-nerdtree')
+    depends_on('nvim-fugitive')
+    depends_on('nvim-commentary')
+    depends_on('git')
+    depends_on('cmake')
 
     phases = ['install']
 

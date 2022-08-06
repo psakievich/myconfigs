@@ -1,9 +1,8 @@
-source ~/.vimrc
 set runtimepath+=~/.vim/pack/vendor/start/*
+source ~/.vimrc
 let mapleader=" "
 
 lua require('pluginsettings')
-colorscheme dracula
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
