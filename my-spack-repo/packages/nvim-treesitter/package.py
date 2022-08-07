@@ -9,4 +9,5 @@ class NvimTreesitter(Vimpackage):
     git      = homepage
 
     version('master', branch='master')
+    depends_on('neovim')
 

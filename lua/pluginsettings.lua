@@ -1,7 +1,7 @@
 --treesitter
---[[local configs = require'nvim-treesitter.configs'
+local configs = require'nvim-treesitter.configs'
 configs.setup {
-ensure_installed = "maintained", -- Only use parsers that are maintained
+ensure_installed = "all", -- Only use parsers that are maintained
 highlight = { -- enable highlighting
   enable = true, 
 },
@@ -9,9 +9,9 @@ indent = {
   enable = true, -- default is disabled anyways
 }
 }
-]]--
 
-
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- LSP
 -- Mappings.
@@ -52,6 +52,8 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
+-- vim.diagnostic.config({virtual_text = false})
 
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,

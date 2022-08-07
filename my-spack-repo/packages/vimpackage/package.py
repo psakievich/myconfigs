@@ -1,5 +1,6 @@
 from spack.package import *
 import spack.util.executable
+import llnl.util.tty as tty
 import os
 
 def config_link(src, dest):
@@ -20,6 +21,7 @@ class neovim:
         exe_args = ['--headless']
         exe_args.extend([v for x in list(args) for v in ['-c', x]])
         exe_args.extend(['-c', 'q'])
+        tty.debug('Calling nvim with args', *exe_args)
         self.executor(*exe_args)
 
 
@@ -38,6 +40,7 @@ class my_vim:
 
 class Vimpackage(Package):
     """Meta class for vim packages"""
+    depends_on('neovim')
 
     @property
     def is_neovim(self):

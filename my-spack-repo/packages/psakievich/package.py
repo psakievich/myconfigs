@@ -1,6 +1,7 @@
 from spack.package import *
 import spack.util.executable
 from spack.pkg.psakievich.vimpackage import config_link, neovim
+import llnl.util.tty as tty
 import os
 
 
@@ -13,8 +14,10 @@ class Psakievich(BundlePackage):
 
     version('main')
 
+    depends_on('nvim-treesitter')
     depends_on('nvim-telescope')
     depends_on('neovim')
+    depends_on('nvim-neogit')
     depends_on('nvim-lspconfig')
     depends_on('nvim-dracula')
     depends_on('nvim-gruvbox')
@@ -33,9 +36,10 @@ class Psakievich(BundlePackage):
         mkdirp(os.path.expanduser('~/.config/nvim/lua'))
         mkdirp(os.path.expanduser('~/.vim'))
 
-        config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf',
+        # non-vim stuff
+        config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf'),
                     os.path.expanduser('~/.tmux.conf'))
-        config_link(os.path.expanduser('~/soft/myconfigs/my_bash',
+        config_link(os.path.expanduser('~/soft/myconfigs/my_bash'),
                     os.path.expanduser('~/.my_bash'))
 
         # link init and vimrc
@@ -52,5 +56,6 @@ class Psakievich(BundlePackage):
         install_string = 'TSInstall {lan}'
         provider = neovim()
         for l in languages:
+            tty.debug('Installing lang {lang}'.format(lang=l))
             provider([install_string.format(lan=l)])
             

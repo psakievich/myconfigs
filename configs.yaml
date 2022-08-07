@@ -1,4 +1,6 @@
 spack:
-  specs: [psakievich]
+  specs:
+    - psakievich
   view:
-    root: ${HOME}/myconfig_bin
+    base:
+      root: ${HOME}/myconfig_bin

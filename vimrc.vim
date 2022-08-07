@@ -22,4 +22,3 @@ colorscheme gruvbox
 :noremap <Home> 0
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
-:inoremap nm <esc>
