@@ -51,13 +51,12 @@ class Psakievich(BundlePackage):
                    os.path.expanduser( '~/.config/nvim/lua'))
 
         # install tree-sitter languages I want
-        # TODO this stalls out if I languages already installed. not sure what to do about it yet
-        languages = []
-        # languages = ['cpp', 'python', 'lua', 'markdown', 'yaml', 'cmake',
-                # 'latex', 'bibtex', 'make', 'bash']
+        languages = ['cpp', 'python', 'lua', 'markdown', 'yaml', 'cmake',
+                'latex', 'bibtex', 'make', 'bash']
         install_string = 'TSInstall {lan}'
         provider = neovim()
         tty.debug('Attempting to install langeuages')
+        provider(['TSUninstall all'])
         for l in languages:
             tty.debug('Installing lang {lang}'.format(lang=l))
             provider([install_string.format(lan=l)])
