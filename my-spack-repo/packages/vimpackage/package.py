@@ -4,6 +4,7 @@ import llnl.util.tty as tty
 import os
 
 def config_link(src, dest):
+    tty.debug('Linking {src} to {dest}'.format(src=src, dest=dest))
     if os.path.islink(dest):
         os.unlink(dest)
     elif os.path.isdir(dest):
