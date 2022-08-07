@@ -1,24 +1,17 @@
 #!/bin/bash
 
-# symlink files
-ln -s ${HOME}/.tmux.conf tmux.conf
-ln -s ${HOME}/.my_bash my_bash
+mkdir -p ${HOME}/soft
 
-# install vim stuff
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-cp my_configs.vim ~/.vim_runtime/my_configs.vim
+# clone spack and activate it
+git clone -c feature.manyFiles=true https://github.com/spack/spack.git ${HOME}/soft/spack
+source ${HOME}/soft/spack/share/spack/setup-env.sh
+spack repo add ${HOME}/soft/myconfigs/my-spack-repo
 
-# append files
+# create an environment for configs
+spack env create myconfigs ${HOME}/soft/myconfigs/configs.yaml
+spack -e myconfigs install
 
-# determine architecture
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
+python -m pip install --user pyright
 
-echo 'export source ${HOME}/.my_bash >> ${HOME}/.bash_profile'
+# export bash stuff
+echo 'source ${HOME}/.my_bash' >> ${HOME}/.bash_profile

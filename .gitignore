@@ -1,0 +1,5 @@
+__pycache__
+*.pyc
+.spack*
+.cache
+*.swp
