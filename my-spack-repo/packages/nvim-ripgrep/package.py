@@ -12,4 +12,5 @@ class NvimRipgrep(Vimpackage):
     homepage = git
     url      = git
     version('master', branch='master')
+    depends_on('ripgrep')
 
