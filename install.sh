@@ -11,7 +11,8 @@ spack repo add ${HOME}/soft/myconfigs/my-spack-repo
 spack env create myconfigs ${HOME}/soft/myconfigs/configs.yaml
 spack -e myconfigs install
 
-python -m pip install --user pyright
+# TODO determine what python LSP server still
+# python -m pip install --user pyright
 
 # export bash stuff
 echo 'source ${HOME}/.my_bash' >> ${HOME}/.bash_profile

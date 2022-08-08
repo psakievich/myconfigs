@@ -16,6 +16,8 @@ class Psakievich(BundlePackage):
 
     depends_on('nvim-treesitter')
     depends_on('nvim-telescope')
+    depends_on('nvim-trouble')
+    depends_on('nvim-nerdtree-git-plugin')
     depends_on('neovim')
     depends_on('nvim-neogit')
     depends_on('nvim-lspconfig')
@@ -60,4 +62,4 @@ class Psakievich(BundlePackage):
         for l in languages:
             tty.debug('Installing lang {lang}'.format(lang=l))
             provider([install_string.format(lan=l)])
-            
+
