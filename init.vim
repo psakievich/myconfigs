@@ -4,14 +4,13 @@ let mapleader=" "
 
 lua require('pluginsettings')
 
-" Telescope mappings
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" ack pluging use ag TODO move somewhere else
+let g:ackprg = 'ag --vimgrep'
 
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
-
-
+:augroup autoformat
+:  autocmd!
+":  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+:  autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+:  autocmd BufWritePre * :call CleanExtraSpaces()
+:augroup END
 

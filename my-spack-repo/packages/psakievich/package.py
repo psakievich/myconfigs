@@ -14,8 +14,11 @@ class Psakievich(BundlePackage):
 
     version('main')
 
+    depends_on('nvim-ack')
     depends_on('nvim-treesitter')
-    depends_on('nvim-telescope')
+    depends_on('nvim-telescope+ripgrep')
+    depends_on('nvim-trouble')
+    depends_on('nvim-nerdtree-git-plugin')
     depends_on('neovim')
     depends_on('nvim-neogit')
     depends_on('nvim-lspconfig')
@@ -39,7 +42,7 @@ class Psakievich(BundlePackage):
         # non-vim stuff
         config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf'),
                     os.path.expanduser('~/.tmux.conf'))
-        config_link(os.path.expanduser('~/soft/myconfigs/my_bash'),
+        config_link(os.path.expanduser('~/soft/myconfigs/my_bash.sh'),
                     os.path.expanduser('~/.my_bash'))
 
         # link init and vimrc
@@ -60,4 +63,4 @@ class Psakievich(BundlePackage):
         for l in languages:
             tty.debug('Installing lang {lang}'.format(lang=l))
             provider([install_string.format(lan=l)])
-            
+
