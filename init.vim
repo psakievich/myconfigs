@@ -4,6 +4,8 @@ let mapleader=" "
 
 lua require('pluginsettings')
 
+" ack pluging use ag TODO move somewhere else
+let g:ackprg = 'ag --vimgrep'
 
 :augroup autoformat
 :  autocmd!

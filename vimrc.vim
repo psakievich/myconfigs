@@ -28,6 +28,7 @@ set showmatch
 set smartindent
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 set tabstop=2 shiftwidth=2 expandtab
+set updatetime=50
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -81,5 +82,3 @@ fun! CleanExtraSpaces()
     call setpos('.', save_cursor)
     call setreg('/', old_query)
 endfun
-
-let g:ackprg = 'ag --vimgrep'
