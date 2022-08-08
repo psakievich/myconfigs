@@ -9,7 +9,7 @@ class NvimTelescope(Vimpackage):
     git      = homepage
 
     version('0.1.0', tag='0.1.0')
-    variant('ripgrep', default=True')
+    variant('ripgrep', default=True, description='use ripgrep for grepping')
 
     depends_on('nvim-plenary')
     depends_on('nvim-treesitter')

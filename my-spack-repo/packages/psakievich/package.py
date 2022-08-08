@@ -16,7 +16,7 @@ class Psakievich(BundlePackage):
 
     depends_on('nvim-ack')
     depends_on('nvim-treesitter')
-    depends_on('nvim-telescope')
+    depends_on('nvim-telescope+ripgrep')
     depends_on('nvim-trouble')
     depends_on('nvim-nerdtree-git-plugin')
     depends_on('neovim')
