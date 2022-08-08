@@ -10,5 +10,6 @@ class NvimTelescope(Vimpackage):
 
     version('0.1.0', tag='0.1.0')
 
+
     depends_on('nvim-plenary')
     depends_on('nvim-treesitter')

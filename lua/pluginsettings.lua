@@ -1,9 +1,10 @@
+local opts = { noremap=true, silent=true }
 --treesitter
-local configs = require'nvim-treesitter.configs'
-configs.setup {
+local ts_configs = require'nvim-treesitter.configs'
+ts_configs.setup {
 ensure_installed = "all", -- Only use parsers that are maintained
 highlight = { -- enable highlighting
-  enable = true, 
+  enable = true,
 },
 indent = {
   enable = true, -- default is disabled anyways
@@ -13,10 +14,30 @@ indent = {
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+-- TELESCOPE
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
+
+require('telescope').setup{
+  defaults = {
+     vimgrep_arguments = {
+        "Ack",
+        "--color=never",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--ignore-case",
+        "--recursive",
+        "--no-messages",
+    }
+  }
+}
+
 -- LSP
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)

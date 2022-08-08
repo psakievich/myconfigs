@@ -27,6 +27,7 @@ set signcolumn=yes
 set showmatch
 set smartindent
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set tabstop=2 shiftwidth=2 expandtab
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -36,7 +37,6 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 let mapleader=" "
-filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,6 +50,9 @@ endfunction
 syntax on
 let g:solarized_termcolors=256
 colorscheme gruvbox
+
+filetype plugin on
+filetype indent on
 
 "remaps
 :noremap <Home> 0
@@ -79,3 +82,4 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 
+let g:ackprg = 'ag --vimgrep'

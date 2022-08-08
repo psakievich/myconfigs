@@ -14,6 +14,7 @@ class Psakievich(BundlePackage):
 
     version('main')
 
+    depends_on('nvim-ack')
     depends_on('nvim-treesitter')
     depends_on('nvim-telescope')
     depends_on('nvim-trouble')
@@ -41,7 +42,7 @@ class Psakievich(BundlePackage):
         # non-vim stuff
         config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf'),
                     os.path.expanduser('~/.tmux.conf'))
-        config_link(os.path.expanduser('~/soft/myconfigs/my_bash'),
+        config_link(os.path.expanduser('~/soft/myconfigs/my_bash.sh'),
                     os.path.expanduser('~/.my_bash'))
 
         # link init and vimrc
