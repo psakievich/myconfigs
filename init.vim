@@ -3,6 +3,8 @@ source ~/.vimrc
 set runtimepath+=~/.vim/pack/vendor/start/*
 let g:solarized_termcolors=256
 colorscheme gruvbox
+" not available on older vim
+set signcolumn=yes
 
 lua require('pluginsettings')
 

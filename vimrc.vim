@@ -24,7 +24,6 @@ set number
 set relativenumber
 set ruler
 set scrolloff=6
-set signcolumn=yes
 set showmatch
 set smartindent
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
