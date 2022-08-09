@@ -1,6 +1,8 @@
-let mapleader=" "
-set runtimepath+=~/.vim/pack/vendor/start/*
+" Things specific to my installation of nvim go here and in lua/*
 source ~/.vimrc
+set runtimepath+=~/.vim/pack/vendor/start/*
+let g:solarized_termcolors=256
+colorscheme gruvbox
 
 lua require('pluginsettings')
 

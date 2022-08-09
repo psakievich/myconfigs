@@ -1,6 +1,7 @@
 " Inspitation and some blatent copying from
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
-"
+" This is stuff that is valid for raw vim
+let mapleader=" "
 "-- SETS
 set autoread
 set background=dark
@@ -49,8 +50,6 @@ function! HasPaste()
     return ''
 endfunction
 syntax on
-let g:solarized_termcolors=256
-colorscheme gruvbox
 
 filetype plugin on
 filetype indent on
@@ -63,14 +62,17 @@ filetype indent on
 " Move a line of text
 :nnoremap <up> :m -2<CR>
 :nnoremap <down> :m +1<CR>
+:nnoremap <Left> gT
+:nnoremap <Right> gt
+" TODOD
+:vnoremap <up> :m '<-2<CR>gv=gv
+:vnoremap <down> :m '>+1<CR>gv=gv
 " window navigations
 :noremap <C-h> <C-w>h
 :noremap <C-j> <C-w>j
 :noremap <C-k> <C-w>k
 :noremap <C-l> <C-w>l
 " turn off arrows for finger training
-:nnoremap <Left> <nop>
-:nnoremap <Right> <nop>
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
