@@ -8,7 +8,7 @@ shopt -u progcomp
 umask u=rwx,go=rx
 
 export SOFT_DIR=${HOME}/soft
-export PATH=${HOME}/myconfig_bin/bin:${PATH}
+export PATH=${HOME}/myconfig/bin:${PATH}
 export EDITOR=nvim
 alias vim=nvim
 

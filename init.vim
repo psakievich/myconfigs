@@ -1,6 +1,6 @@
+let mapleader=" "
 set runtimepath+=~/.vim/pack/vendor/start/*
 source ~/.vimrc
-let mapleader=" "
 
 lua require('pluginsettings')
 

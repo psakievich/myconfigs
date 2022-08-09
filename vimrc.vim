@@ -61,16 +61,14 @@ filetype indent on
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>w :w!<cr>
 " Move a line of text
-:nnoremap n :m +1<CR>
-:nnoremap m :m -2<CR>
+:nnoremap <up> :m -2<CR>
+:nnoremap <down> :m +1<CR>
 " window navigations
 :noremap <C-h> <C-w>h
 :noremap <C-j> <C-w>j
 :noremap <C-k> <C-w>k
 :noremap <C-l> <C-w>l
 " turn off arrows for finger training
-:nnoremap <Up> <nop>
-:nnoremap <Down> <nop>
 :nnoremap <Left> <nop>
 :nnoremap <Right> <nop>
 

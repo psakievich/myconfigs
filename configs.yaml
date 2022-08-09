@@ -3,4 +3,4 @@ spack:
     - psakievich
   view:
     base:
-      root: ${HOME}/myconfig_bin
+      root: ${HOME}/myconfig
