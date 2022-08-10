@@ -15,6 +15,7 @@ class Psakievich(BundlePackage):
     version('main')
 
     depends_on('nvim-ack')
+    depends_on('nvim-peaksea')
     depends_on('nvim-treesitter')
     depends_on('nvim-telescope+ripgrep')
     depends_on('nvim-trouble')
@@ -37,7 +38,7 @@ class Psakievich(BundlePackage):
 
         mkdirp(os.path.expanduser('~/.config/nvim'))
         mkdirp(os.path.expanduser('~/.config/nvim/lua'))
-        mkdirp(os.path.expanduser('~/.vim'))
+        mkdirp(os.path.exapenuser('~/.vim/backup'))
 
         # non-vim stuff
         config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf'),
