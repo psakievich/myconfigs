@@ -10,6 +10,7 @@ umask u=rwx,go=rx
 export SOFT_DIR=${HOME}/soft
 export PATH=${HOME}/myconfig/bin:${PATH}
 export EDITOR=nvim
+export MYCONFIGINSTALLED=1
 alias vim=nvim
 
 function update-congifs(){

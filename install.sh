@@ -1,4 +1,5 @@
 #!/bin/bash
+source ${HOME}/.bash_profile
 
 mkdir -p ${HOME}/soft
 
@@ -15,5 +16,7 @@ spack -e myconfigs install
 # TODO determine what python LSP server still
 # python -m pip install --user pyright
 
-# export bash stuff
-echo 'source ${HOME}/.my_bash' >> ${HOME}/.bash_profile
+# export bash stuff check to see if we've already appended file
+if [ -z "${MYCONFIGINSTALLED}" ]; then
+  echo 'source ${HOME}/.my_bash' >> ${HOME}/.bash_profile
+fi
