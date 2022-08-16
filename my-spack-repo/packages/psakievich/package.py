@@ -38,7 +38,7 @@ class Psakievich(BundlePackage):
 
         mkdirp(os.path.expanduser('~/.config/nvim'))
         mkdirp(os.path.expanduser('~/.config/nvim/lua'))
-        mkdirp(os.path.exapenuser('~/.vim/backup'))
+        mkdirp(os.path.expanduser('~/.vim/backup'))
 
         # non-vim stuff
         config_link(os.path.expanduser('~/soft/myconfigs/tmux.conf'),

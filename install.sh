@@ -11,6 +11,7 @@ spack external find openssl curl
 
 # create an environment for configs
 spack env create myconfigs ${HOME}/soft/myconfigs/configs.yaml
+spack -e myconfigs concretize -f
 spack -e myconfigs install
 
 # TODO determine what python LSP server still
