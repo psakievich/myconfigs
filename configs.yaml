@@ -1,6 +1,9 @@
 spack:
   specs:
     - psakievich
+    - nvim-cmp
+    - nvim-coq-nvim
+    - tmux
   view:
     base:
       root: ${HOME}/myconfig
