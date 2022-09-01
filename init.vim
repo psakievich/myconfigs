@@ -35,8 +35,8 @@ let g:ackprg = 'ag --vimgrep'
 :augroup autoformat
 :  autocmd!
 ":  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-:  autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
-:  autocmd BufWritePre * :call CleanExtraSpaces()
+:  autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py,*.lua,*.vim lua vim.lsp.buf.formatting_sync()
+:  autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py :call CleanExtraSpaces()
 :augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

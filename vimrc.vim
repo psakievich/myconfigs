@@ -191,5 +191,5 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre * :call CleanExtraSpaces()
+    autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py :call CleanExtraSpaces()
 endif
