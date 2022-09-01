@@ -11,7 +11,8 @@ export SOFT_DIR=${HOME}/soft
 export PATH=${HOME}/myconfig/bin:${PATH}
 export EDITOR=nvim
 export MYCONFIGINSTALLED=1
-alias vim=nvim
+
+alias sspack=${SOFT_DIR}/spack/bin/spack
 
 function update-congifs(){
 git -C ~/soft/myconfigs pull
