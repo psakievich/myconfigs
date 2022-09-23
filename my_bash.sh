@@ -18,6 +18,10 @@ function update-congifs(){
 git -C ~/soft/myconfigs pull
 }
 
+function git_branch_prune(){
+    git branch | grep -v "$1" | xargs git branch -D
+}
+
 function cdh(){
   cd ${HOME}
 }
