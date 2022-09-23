@@ -167,8 +167,8 @@ filetype indent on
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>w :w!<cr>
 " Move a line of text
-:nnoremap <up> :m -2<CR>
-:nnoremap <down> :m +1<CR>
+" :nnoremap <up> :m -2<CR>
+" :nnoremap <down> :m +1<CR>
 :nnoremap <Left> gT
 :nnoremap <Right> gt
 " TODOD

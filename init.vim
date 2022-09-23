@@ -28,6 +28,7 @@ map <leader>nf :NERDTreeFind<cr>
 " ack pluging use ag TODO move somewhere else
 let g:ackprg = 'ag --vimgrep'
 :tnoremap <Esc> <C-\><C-n>
+:nnoremap <Up> i
 :tnoremap <C-h> <C-\><C-N><C-w>h
 :tnoremap <C-j> <C-\><C-N><C-w>j
 :tnoremap <C-k> <C-\><C-N><C-w>k
@@ -59,7 +60,7 @@ if executable('ag')
 endif
 
 " When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+vnoremap <silent> gv :call VisualSelection('gv', ' ')<CR>
 
 " Open Ack and put the cursor in the right position
 map <leader>g :Ack
