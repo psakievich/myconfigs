@@ -7,3 +7,6 @@ spack:
       root: ${HOME}/myconfig
       projections:
         openssl: '{name}/{version}'
+  concretizer:
+    targets:
+      granularity: generic

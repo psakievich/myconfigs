@@ -46,7 +46,7 @@ class Psakievich(BundlePackage):
                 'latex', 'bibtex', 'make', 'bash']
         install_string = 'TSInstall {lan}'
         provider = neovim()
-        provider("'autocmd User PackerComplete quitall' -c 'PackerSync'")
+        provider(["'autocmd User PackerComplete quitall' -c 'PackerSync'"])
         tty.debug('Attempting to install langeuages')
         provider(['TSUninstall all'])
         for l in languages:
