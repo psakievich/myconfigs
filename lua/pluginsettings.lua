@@ -37,6 +37,9 @@ require('telescope').setup{
 
 
 -- LSP
+vim.diagnostic.config({
+  virtual_text = false
+})
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
