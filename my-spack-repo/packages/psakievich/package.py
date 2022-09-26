@@ -14,21 +14,8 @@ class Psakievich(BundlePackage):
 
     version('main')
 
-    depends_on('nvim-ack')
-    depends_on('nvim-peaksea')
-    depends_on('nvim-treesitter')
-    depends_on('nvim-telescope~ripgrep')
-    depends_on('nvim-trouble')
-    depends_on('nvim-nerdtree-git-plugin')
+    depends_on('the-silver-searcher')
     depends_on('neovim')
-    depends_on('nvim-neogit')
-    depends_on('nvim-lspconfig')
-    depends_on('nvim-dracula')
-    depends_on('nvim-gruvbox')
-    depends_on('nvim-colors-solarized')
-    depends_on('nvim-nerdtree')
-    depends_on('nvim-fugitive')
-    depends_on('nvim-commentary')
     depends_on('git')
     depends_on('cmake')
 
@@ -59,6 +46,7 @@ class Psakievich(BundlePackage):
                 'latex', 'bibtex', 'make', 'bash']
         install_string = 'TSInstall {lan}'
         provider = neovim()
+        provider("'autocmd User PackerComplete quitall' -c 'PackerSync'")
         tty.debug('Attempting to install langeuages')
         provider(['TSUninstall all'])
         for l in languages:

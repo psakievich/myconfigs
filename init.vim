@@ -1,5 +1,7 @@
 " Things specific to my installation of nvim go here and in lua/*
 source ~/.vimrc
+lua require('packer_data')
+lua require('pluginsettings')
 set runtimepath+=~/.vim/pack/vendor/start/*
 let g:solarized_termcolors=256
 try
@@ -13,7 +15,6 @@ endtry
 " not available on older vim
 set signcolumn=yes
 
-lua require('pluginsettings')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
