@@ -35,6 +35,17 @@ set updatetime=50
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
+
+" netrw configs
+" https://shapeshed.com/vim-netrw/
+let g:netrw_liststyle = 3
+" let g:netrw_banner = 0
+let g:netrw_brows_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+nnoremap <C-e> :Vexplore<cr>
+
+
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
 else

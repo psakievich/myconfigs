@@ -15,17 +15,6 @@ endtry
 " not available on older vim
 set signcolumn=yes
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
-
-
 " ack pluging use ag TODO move somewhere else
 let g:ackprg = 'ag --vimgrep'
 :tnoremap <Esc> <C-\><C-n>
