@@ -2,6 +2,20 @@
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " This is stuff that is valid for raw vim
 let mapleader=" "
+"-- COLORS
+let g:solarized_termcolors=256
+try
+colorscheme desert
+catch
+endtry
+try
+colorscheme peaksea
+catch
+endtry
+try
+colorscheme gruvbox
+catch
+endtry
 "-- SETS
 set autoindent
 set autoread
@@ -27,6 +41,11 @@ set number
 set relativenumber
 set ruler
 set scrolloff=6
+" not available on older vim
+try
+set signcolumn=yes
+catch
+endtry
 set showmatch
 set smartindent
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
@@ -45,6 +64,50 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 nnoremap <C-e> :Vexplore<cr>
 
+" ack pluging use ag TODO move somewhere else
+let g:ackprg = 'ag --vimgrep'
+" Use the the_silver_searcher if possible (much faster than Ack)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
+" When you press gv you Ack after the selected text
+vnoremap <silent> gv :call VisualSelection('gv', ' ')<CR>
+
+" Open Ack and put the cursor in the right position
+map <leader>g :Ack
+
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Turn persistent undo on
+"    means that you can undo even when you close a buffer/VIM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+try
+    set undodir=~/.vim/backup
+    set undofile
+catch
+endtry
+
+" Do :help cope if you are unsure what cope is. It's super useful!
+"
+" When you search with Ack, display your results in cope by doing:
+"   <leader>cc
+"
+" To go to the next search result do:
+"   <leader>n
+"
+" To go to the previous search results do:
+"   <leader>p
+"
+map <leader>cc :botright cope<cr>
+map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
+
+" Make sure that enter is never overriden in the quickfix window
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
@@ -185,12 +248,6 @@ filetype indent on
 " TODOD
 :vnoremap <up> :m m'>+<cr>`<my`>mzgv`yo`z
 :vnoremap <down> :m'<-2<cr>`>my`<mzgv`yo`z
-" window navigations
-:noremap <C-h> <C-w>h
-:noremap <C-j> <C-w>j
-:noremap <C-k> <C-w>k
-:noremap <C-l> <C-w>l
-" turn off arrows for finger training
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()

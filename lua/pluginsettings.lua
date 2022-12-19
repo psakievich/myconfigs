@@ -29,6 +29,7 @@ require('telescope').setup{
         "--numbers",
         "--column",
         "--smart-case",
+        "--hidden",
         "--silent",
         "--vimgrep",
     }
