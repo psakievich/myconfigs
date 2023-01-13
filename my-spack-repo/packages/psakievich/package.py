@@ -47,9 +47,9 @@ class Psakievich(BundlePackage):
         install_string = 'TSInstall {lan}'
         provider = neovim()
         provider(["'autocmd User PackerComplete quitall' -c 'PackerSync'"])
-        tty.debug('Attempting to install langeuages')
-        provider(['TSUninstall all'])
-        for l in languages:
-            tty.debug('Installing lang {lang}'.format(lang=l))
-            provider([install_string.format(lan=l)])
+        # tty.debug('Attempting to install langeuages')
+        # provider(['TSUninstall all'])
+        # for l in languages:
+        #     tty.debug('Installing lang {lang}'.format(lang=l))
+        #     provider([install_string.format(lan=l)])
 
