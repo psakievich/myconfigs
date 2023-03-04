@@ -22,7 +22,7 @@ endtry
 :augroup autoformat
 :  autocmd!
 ":  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-:  autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py,*.lua,*.vim lua vim.lsp.buf.formatting_sync()
+" :  autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py,*.lua,*.vim lua vim.lsp.buf.formatting_sync()
 :  autocmd BufWritePre *.cpp,*.C,*.H,*.hpp,*.py :call CleanExtraSpaces()
 :augroup END
 

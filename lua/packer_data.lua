@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   use('gruvbox-community/gruvbox')
   use('tpope/vim-commentary')
   use('tpope/vim-fugitive')
-  use('TimUntersberger/neogit')
+  use('tpope/vim-abolish')
   use('mileszs/ack.vim')
                                       
   use('neovim/nvim-lspconfig')        
