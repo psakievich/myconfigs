@@ -66,7 +66,6 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 nnoremap <C-e> :Vexplore<cr>
 
 " ack pluging use ag TODO move somewhere else
-let g:ackprg = 'ag --vimgrep'
 " Use the the_silver_searcher if possible (much faster than Ack)
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
