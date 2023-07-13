@@ -3,6 +3,7 @@
 ########################################################
 # fix annoying completion issue in rhel7
 shopt -u progcomp
+set -o vi
 
 # file permissions
 umask u=rwx,go=rx
