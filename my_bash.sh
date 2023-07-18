@@ -27,3 +27,11 @@ function cdh(){
   cd ${HOME}
 }
 
+function cds(){
+  if [ -n "${SCRATCH}" ]; then
+    cd ${SCRATCH}
+  else
+    echo "SCRATCH var is not set"
+  fi
+}
+
